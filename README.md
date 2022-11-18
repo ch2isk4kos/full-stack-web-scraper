@@ -18,11 +18,11 @@
 
 **[Vanilla JavaScript](https://developer.mozilla.org/en-US/docs/Web/javascript)**
 
-## Database
+### Database
 
 **[MongoDB Atlas](https://www.mongodb.com/atlas)**
 
-## Server
+### Server
 
 **[Node JS](https://node.js)**
 
