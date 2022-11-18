@@ -8,9 +8,76 @@
   </head>
   <body>
     <h1>Homepage.</h1>
+    <br />
+    <form action="">
+      <h4>Add A Creator</h4>
+      <input
+        class="input"
+        type="text"
+        name="name"
+        id="name"
+        placeholder="paste url here"
+      />
+      <button type="submit" onclick="submitInput()">Submit</button>
+    </form>
+    <br />
+    <div class="container"></div>
 
-    <script></script>
+    <script>
+      // Helper Function(s)
 
-    <style></style>
+      const addElement = (type, attrs = {}) => {
+        const element = document.createElement(type);
+
+        for (attr in attrs) {
+          const value = attrs[attr];
+
+          if (attr == "innerText") element.innerText = value;
+          else element.setAttribute(attr, value);
+        }
+
+        return element;
+      };
+
+      const container = document.querySelector(".container");
+      const card = addElement("div", { class: "card" });
+      container.appendChild(card);
+
+      const creators = [
+        { name: "Pat Mcafee Show", img: "http://" },
+        { name: "Tape Don't Lie: Raiders Podcast", img: "http://" },
+        { name: "New York Knicks", img: "http://" },
+      ];
+
+      creators.forEach((creator) => {
+        const card = addElement("div", { class: "card" });
+        const title = addElement("h4", { innerText: creator.name });
+        const img = addElement("img", { src: creator.img });
+
+        card.appendChild(title);
+        card.appendChild(img);
+
+        container.appendChild(card);
+      });
+
+      //
+    </script>
+
+    <style>
+      * {
+        box-sizing: border-box;
+      }
+      .container {
+        display: flex;
+        background-color: coral;
+      }
+
+      .card {
+        margin: 5px;
+        padding: 20px;
+        color: white;
+        border: 2px solid lightblue;
+      }
+    </style>
   </body>
 </html>
