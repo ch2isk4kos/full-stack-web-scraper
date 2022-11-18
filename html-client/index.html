@@ -12,7 +12,7 @@
     <form action="">
       <h4>Add A Creator</h4>
       <input
-        class="input"
+        class="userInput"
         type="text"
         name="name"
         id="name"
@@ -24,8 +24,10 @@
     <div class="container"></div>
 
     <script>
-      // Add An Element to Root Container
+      // Global Variable(s)
+      const container = document.querySelector(".container");
 
+      // Add An Element to Root Container
       const addElement = (type, attrs = {}) => {
         const element = document.createElement(type);
 
@@ -39,39 +41,55 @@
         return element;
       };
 
-      const container = document.querySelector(".container");
       const card = addElement("div", { class: "card" });
+
       container.appendChild(card);
 
-      // Test Data
+      // Test Data: see -> ../node-server/index.js
+      //   const creators = [
+      //     { name: "Pat Mcafee Show", img: "http://" },
+      //     { name: "Tape Don't Lie: Raiders Podcast", img: "http://" },
+      //     { name: "New York Knicks", img: "http://" },
+      //   ];
 
-      const creators = [
-        { name: "Pat Mcafee Show", img: "http://" },
-        { name: "Tape Don't Lie: Raiders Podcast", img: "http://" },
-        { name: "New York Knicks", img: "http://" },
-      ];
+      // GET all creators
+      const getCreators = async () => {
+        const res = await fetch(`http://localhost:3000/creators`);
+        const creators = await res.json();
 
-      // Render Local Creators
+        creators.forEach((creator) => {
+          const card = addElement("div", { class: "card" });
+          const title = addElement("h4", { innerText: creator.name });
+          const img = addElement("img", { src: creator.img });
 
-      creators.forEach((creator) => {
-        const card = addElement("div", { class: "card" });
-        const title = addElement("h4", { innerText: creator.name });
-        const img = addElement("img", { src: creator.img });
+          card.appendChild(title);
+          card.appendChild(img);
 
-        card.appendChild(title);
-        card.appendChild(img);
+          container.appendChild(card);
+        });
+      };
 
-        container.appendChild(card);
+      getCreators();
 
-        // Submit A Creator
-
-        const submitInput = () => {
-          const value = document.querySelector("input").value;
-          // send to node server
-        };
-      });
-
-      //
+      // Submit A Creator
+      const submitInput = async () => {
+        const userInput = document.querySelector(".userInput").value;
+        console.log(userInput);
+        // send to node server
+        await fetch("http://localhost:3000/creators", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ userInput }), // serialized object
+        })
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
     </script>
 
     <style>
