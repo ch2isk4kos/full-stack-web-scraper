@@ -24,7 +24,7 @@
     <div class="container"></div>
 
     <script>
-      // Helper Function(s)
+      // Add An Element to Root Container
 
       const addElement = (type, attrs = {}) => {
         const element = document.createElement(type);
@@ -43,11 +43,15 @@
       const card = addElement("div", { class: "card" });
       container.appendChild(card);
 
+      // Test Data
+
       const creators = [
         { name: "Pat Mcafee Show", img: "http://" },
         { name: "Tape Don't Lie: Raiders Podcast", img: "http://" },
         { name: "New York Knicks", img: "http://" },
       ];
+
+      // Render Local Creators
 
       creators.forEach((creator) => {
         const card = addElement("div", { class: "card" });
@@ -58,6 +62,13 @@
         card.appendChild(img);
 
         container.appendChild(card);
+
+        // Submit A Creator
+
+        const submitInput = () => {
+          const value = document.querySelector("input").value;
+          // send to node server
+        };
       });
 
       //
