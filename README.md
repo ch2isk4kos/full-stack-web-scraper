@@ -20,7 +20,7 @@
 
 ## Database
 
-**[MySQL](https://www.mysql.com/)**
+**[MongoDB Atlas](https://www.mongodb.com/atlas)**
 
 ## Server
 
