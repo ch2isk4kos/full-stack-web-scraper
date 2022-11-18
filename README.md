@@ -28,6 +28,6 @@
 
 ### Web Scraper
 
-**[Puppeteer Repository](https://github.com/puppeteer/puppeteer/tree/main#readme)**
+**[Puppeteer](https://github.com/puppeteer/puppeteer/tree/main#readme)**
 
 <br>
