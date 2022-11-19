@@ -27,6 +27,26 @@
       // Global Variable(s)
       const container = document.querySelector(".container");
 
+      // Submit A Creator
+      const submitInput = async () => {
+        const userInput = document.querySelector(".userInput").value;
+        console.log(userInput);
+        // send to node server
+        await fetch("http://localhost:3000/creators", {
+          method: "POST",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({ userInput }), // serialized object
+        })
+          .then((res) => {
+            console.log(res);
+          })
+          .catch((err) => {
+            console.log(err);
+          });
+      };
+
       // Add An Element to Root Container
       const addElement = (type, attrs = {}) => {
         const element = document.createElement(type);
@@ -70,26 +90,6 @@
       };
 
       getCreators();
-
-      // Submit A Creator
-      const submitInput = async () => {
-        const userInput = document.querySelector(".userInput").value;
-        console.log(userInput);
-        // send to node server
-        await fetch("http://localhost:3000/creators", {
-          method: "POST",
-          headers: {
-            "Content-Type": "application/json",
-          },
-          body: JSON.stringify({ userInput }), // serialized object
-        })
-          .then((res) => {
-            console.log(res);
-          })
-          .catch((err) => {
-            console.log(err);
-          });
-      };
     </script>
 
     <style>
