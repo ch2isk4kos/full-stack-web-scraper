@@ -1,11 +1,14 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
+const { MongoClient } = require("mongodb");
 const { scrapeWebpage } = require("./scrapers.js");
 require("dotenv").config();
 
 const PORT = process.env.PORT || 4000;
 const MDB = process.env.MONGO_URI;
+
+const client = new MongoClient(MDB);
 
 // MIDDLEWARE
 // app.use(cors);
@@ -43,10 +46,22 @@ app.post("/creators", async (req, res) => {
   const data = await scrapeWebpage(req.body.userInput);
   console.log("data:", { data });
   // @TODO: add to db
+  try {
+    client.connect();
+    console.log("Connected to MongoDB");
+  } catch (err) {
+    console.log(err);
+  }
   res.send("Success!");
 });
 
 // START SERVER
 app.listen(PORT, () => {
   console.log(`Listening on ${PORT}`);
+  //   try {
+  //     client.connect();
+  //     console.log("Connected to MongoDB");
+  //   } catch (err) {
+  //     console.log(err);
+  //   }
 });
