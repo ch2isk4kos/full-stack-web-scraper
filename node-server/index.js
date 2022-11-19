@@ -2,6 +2,7 @@ const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
 // const cors = require("cors");
+const { scrapeWebpage } = require("./scrapers.js");
 
 const PORT = 3000 || 4000;
 
@@ -37,7 +38,9 @@ app.get("/creators", async (req, res) => {
 
 app.post("/creators", async (req, res) => {
   console.log("req.body:", req.body);
-  // @TODO: scrape webpage
+  // scrape user input url
+  const data = await scrapeWebpage(req.body.userInput);
+  console.log("data:", { data });
   // @TODO: add to db
   res.send("Success!");
 });

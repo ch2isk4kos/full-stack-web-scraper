@@ -22,6 +22,4 @@ const scrapeWebpage = async (url) => {
 
 scrapeWebpage("https://www.youtube.com/@raiders");
 
-// module.exports = {
-//   scrapeWebpage,
-// };
+module.exports = { scrapeWebpage };
