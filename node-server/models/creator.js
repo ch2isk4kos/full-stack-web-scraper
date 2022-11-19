@@ -1,11 +1,9 @@
 const mongoose = require("mongoose");
 
 const CreatorSchema = new mongoose.Schema({
-  StudentId: Number,
-  Name: String,
-  Roll: Number,
-  Birthday: Date,
-  Address: String,
+  id: Number,
+  handle: String,
+  img: String,
 });
 
 const creator = mongoose.model("creator", CreatorSchema, "Creators");
