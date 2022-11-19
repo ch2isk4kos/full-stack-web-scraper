@@ -4,7 +4,7 @@ const bodyParser = require("body-parser");
 const { scrapeWebpage } = require("./scrapers.js");
 require("dotenv").config();
 
-const PORT = process.env.PORT;
+const PORT = process.env.PORT || 4000;
 const MDB = process.env.MONGO_URI;
 
 // MIDDLEWARE
