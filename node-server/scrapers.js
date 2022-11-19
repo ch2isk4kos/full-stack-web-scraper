@@ -20,6 +20,6 @@ const scrapeWebpage = async (url) => {
   return { name, img };
 };
 
-scrapeWebpage("https://www.youtube.com/@raiders");
+// scrapeWebpage("https://www.youtube.com/@raiders");
 
 module.exports = { scrapeWebpage };
