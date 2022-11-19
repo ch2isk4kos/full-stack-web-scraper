@@ -1,10 +1,11 @@
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
-// const cors = require("cors");
 const { scrapeWebpage } = require("./scrapers.js");
+require("dotenv").config();
 
-const PORT = 3000 || 4000;
+const PORT = process.env.PORT;
+const MDB = process.env.MONGO_URI;
 
 // MIDDLEWARE
 // app.use(cors);
