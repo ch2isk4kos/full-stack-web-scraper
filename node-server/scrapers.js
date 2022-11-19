@@ -5,16 +5,13 @@ const scrapeWebpage = async (url) => {
   const page = await browser.newPage(); // create new page
   await page.goto(url); // navigate to input url
 
-  const [element] = await page.$x('//*[@id="text"]'); // <--
+  const [element] = await page.$x('//*[@id="text"]');
   const text = await element.getProperty("textContent");
   const name = await text.jsonValue();
 
-  //   const [element2] = await page.$x("//*[@id='img']"); // <--
-  const [element2] = await page.$x('//*[@id="img"]'); // <--
+  const [element2] = await page.$x('//*[@id="img"]');
   const src = await element2.getProperty("src");
   const img = await src.jsonValue();
-
-  //   const [element3] = await page.$x("//*[@id='img']");
 
   browser.close();
 
