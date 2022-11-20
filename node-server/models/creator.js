@@ -6,6 +6,6 @@ const CreatorSchema = new mongoose.Schema({
   img: String,
 });
 
-const creator = mongoose.model("creator", CreatorSchema, "Creators");
-
-module.exports = { creator };
+// const creator = mongoose.model("creator", CreatorSchema, "Creators");
+// module.exports = { creator };
+module.exports = mongoose.model("creator", CreatorSchema, "Creators");
