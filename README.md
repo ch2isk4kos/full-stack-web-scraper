@@ -23,7 +23,7 @@
 
 ### Server
 
-**[Node JS](https://node.js)**
+**[NodeJS](https://node.js)**
 
 ### Web Scraper
 
