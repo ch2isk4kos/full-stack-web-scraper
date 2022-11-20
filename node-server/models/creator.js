@@ -1,7 +1,7 @@
 const mongoose = require("mongoose");
 
 const CreatorSchema = new mongoose.Schema({
-  id: Number,
+  id: String,
   handle: String,
   img: String,
 });
