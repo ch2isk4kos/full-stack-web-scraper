@@ -18,7 +18,7 @@
 
 ### Database
 
-**[MongoDB Atlas](https://www.mongodb.com/atlas)**
+**[MongoDB Atlas](https://www.mongodb.com/atlas)**<br>
 **[Mongoose](https://mongoosejs.com/)**
 
 ### Server
