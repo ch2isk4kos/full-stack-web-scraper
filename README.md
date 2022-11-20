@@ -10,7 +10,7 @@
 
 ### Client
 
-**[HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)**
+**[HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)**<br>
 **[Vanilla JavaScript](https://developer.mozilla.org/en-US/docs/Web/javascript)**
 
 ### Database
