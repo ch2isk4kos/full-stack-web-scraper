@@ -1,3 +1,4 @@
+const crypto = require("crypto");
 const express = require("express");
 const app = express();
 const bodyParser = require("body-parser");
@@ -16,8 +17,6 @@ mongoose.connect(MDB, {
   useNewUrlParser: true,
   useUnifiedTopology: true,
 });
-
-const i = 0;
 
 // MIDDLEWARE
 // app.use(cors);
@@ -39,9 +38,9 @@ app.get("/", (req, res) => {
 
 app.get("/creators", async (req, res) => {
   const creators = [
-    { id: i++, name: "Pat Mcafee Show", img: "http://" },
-    { id: i++, name: "Tape Don't Lie: Raiders Podcast", img: "http://" },
-    { id: i++, name: "New York Knicks", img: "http://" },
+    { id: 0, name: "Pat Mcafee Show", img: "http://" },
+    { id: 1, name: "Tape Don't Lie: Raiders Podcast", img: "http://" },
+    { id: 2, name: "New York Knicks", img: "http://" },
   ];
 
   // @TODO: GET from db
@@ -62,7 +61,7 @@ app.post("/creators", async (req, res) => {
     console.log("Connected to MongoDB");
 
     const creator = new Creator();
-    creator.id = 1;
+    creator.id = crypto.randomUUID;
     creator.handle = data.name;
     creator.img = data.img;
     console.log({ creator });
