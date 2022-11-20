@@ -8,10 +8,6 @@
 
 ## Tools
 
-### API(s)
-
-**[Express](https://expressjs.com/)**
-
 ### Client
 
 **[Vanilla JavaScript](https://developer.mozilla.org/en-US/docs/Web/javascript)**
@@ -23,7 +19,8 @@
 
 ### Server
 
-**[NodeJS](https://node.js)**
+**[NodeJS](https://node.js)**<br>
+**[Express](https://expressjs.com/)**
 
 ### Web Scraper
 
