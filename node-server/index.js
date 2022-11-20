@@ -12,6 +12,7 @@ const PORT = process.env.PORT || 4000;
 const MDB = process.env.MONGO_URI;
 
 const client = new MongoClient(MDB);
+console.log({ client });
 
 mongoose.connect(MDB, {
   useNewUrlParser: true,
@@ -38,9 +39,9 @@ app.get("/", (req, res) => {
 
 app.get("/creators", async (req, res) => {
   const creators = [
-    { id: 0, name: "Pat Mcafee Show", img: "http://" },
-    { id: 1, name: "Tape Don't Lie: Raiders Podcast", img: "http://" },
-    { id: 2, name: "New York Knicks", img: "http://" },
+    { id: "0", name: "Pat Mcafee Show", img: "http://" },
+    { id: "1", name: "Tape Don't Lie: Raiders Podcast", img: "http://" },
+    { id: "2", name: "New York Knicks", img: "http://" },
   ];
 
   // @TODO: GET from db
