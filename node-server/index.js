@@ -20,7 +20,6 @@ mongoose.connect(MDB, {
 });
 
 // MIDDLEWARE
-// app.use(cors);
 app.use(bodyParser.json()); // extract json from body of request
 // disable security rules for local development
 app.use((req, res, next) => {
