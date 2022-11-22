@@ -11,6 +11,7 @@
 ### Client
 
 **[HTML](https://developer.mozilla.org/en-US/docs/Web/HTML)**<br>
+**[CSS](https://developer.mozilla.org/en-US/docs/Web/CSS)**<br>
 **[Vanilla JavaScript](https://developer.mozilla.org/en-US/docs/Web/javascript)**
 
 ### Database
