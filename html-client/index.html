@@ -9,17 +9,14 @@
   <body>
     <h1>Homepage.</h1>
     <br />
-    <form action="">
-      <h4>Add A Creator</h4>
-      <input
-        class="userInput"
-        type="text"
-        name="name"
-        id="name"
-        placeholder="paste url here"
-      />
-      <button type="submit" onclick="submitInput()">Submit</button>
-    </form>
+    <h4>Add A Creator</h4>
+    <input
+      class="userInput"
+      type="text"
+      name="userInput"
+      placeholder="paste url here"
+    />
+    <button type="submit" onclick="submitInput()">Submit</button>
     <br />
     <div class="container"></div>
 
@@ -59,6 +56,7 @@
         })
           .then((res) => {
             console.log(res);
+            userInput.innerText = "";
           })
           .catch((err) => {
             console.log(err);
@@ -66,19 +64,7 @@
       }
 
       // Add An Element to Root Container
-      // const addElement = (type, attrs = {}) => {
-      //   const element = document.createElement(type);
-
-      //   for (attr in attrs) {
-      //     const value = attrs[attr];
-
-      //     if (attr == "innerText") element.innerText = value;
-      //     else element.setAttribute(attr, value);
-      //   }
-
-      //   return element;
-      // };
-      async function addElement(type, attrs = {}) {
+      const addElement = (type, attrs = {}) => {
         const element = document.createElement(type);
 
         for (attr in attrs) {
@@ -89,7 +75,19 @@
         }
 
         return element;
-      }
+      };
+      // async function addElement(type, attrs = {}) {
+      //   const element = document.createElement(type);
+
+      //   for (attr in attrs) {
+      //     const value = attrs[attr];
+
+      //     if (attr == "innerText") element.innerText = value;
+      //     else element.setAttribute(attr, value);
+      //   }
+
+      //   return element;
+      // }
 
       const card = addElement("div", { class: "card" });
 
