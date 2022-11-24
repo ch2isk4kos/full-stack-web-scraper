@@ -53,7 +53,7 @@ app.post("/creators", async (req, res) => {
 
   // scrape user input url
   const data = await scrapeWebpage(req.body.userInput);
-  console.log("data:", { data });
+  console.log({ data });
 
   // @TODO: add to db
   try {
@@ -69,10 +69,9 @@ app.post("/creators", async (req, res) => {
     creator.save((err, c) => {
       if (err) console.log(`SAVE ERROR: ${err}`);
       res.send(`Creator ${creator.id} saved`);
-      //   client.close();
     });
   } catch (err) {
-    console.log(err);
+    console.log({ err });
   }
   //   res.send("Success!");
   client.close();
