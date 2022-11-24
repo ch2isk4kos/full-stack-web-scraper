@@ -28,7 +28,25 @@
       const container = document.querySelector(".container");
 
       // Submit A Creator
-      const submitInput = async () => {
+      // const submitInput = async () => {
+      //   const userInput = document.querySelector(".userInput").value;
+      //   console.log(userInput);
+      //   // send to node server
+      //   await fetch("http://localhost:3000/creators", {
+      //     method: "POST",
+      //     headers: {
+      //       "Content-Type": "application/json",
+      //     },
+      //     body: JSON.stringify({ userInput }), // serialized object
+      //   })
+      //     .then((res) => {
+      //       console.log(res);
+      //     })
+      //     .catch((err) => {
+      //       console.log(err);
+      //     });
+      // };
+      async function submitInput() {
         const userInput = document.querySelector(".userInput").value;
         console.log(userInput);
         // send to node server
@@ -45,10 +63,22 @@
           .catch((err) => {
             console.log(err);
           });
-      };
+      }
 
       // Add An Element to Root Container
-      const addElement = (type, attrs = {}) => {
+      // const addElement = (type, attrs = {}) => {
+      //   const element = document.createElement(type);
+
+      //   for (attr in attrs) {
+      //     const value = attrs[attr];
+
+      //     if (attr == "innerText") element.innerText = value;
+      //     else element.setAttribute(attr, value);
+      //   }
+
+      //   return element;
+      // };
+      async function addElement(type, attrs = {}) {
         const element = document.createElement(type);
 
         for (attr in attrs) {
@@ -59,7 +89,7 @@
         }
 
         return element;
-      };
+      }
 
       const card = addElement("div", { class: "card" });
 
@@ -73,7 +103,22 @@
       //   ];
 
       // GET all creators
-      const getCreators = async () => {
+      // const getCreators = async () => {
+      //   const res = await fetch(`http://localhost:3000/creators`);
+      //   const creators = await res.json();
+
+      //   creators.forEach((creator) => {
+      //     const card = addElement("div", { class: "card" });
+      //     const title = addElement("h4", { innerText: creator.name });
+      //     const img = addElement("img", { src: creator.img });
+
+      //     card.appendChild(title);
+      //     card.appendChild(img);
+
+      //     container.appendChild(card);
+      //   });
+      // };
+      async function getCreators() {
         const res = await fetch(`http://localhost:3000/creators`);
         const creators = await res.json();
 
@@ -87,7 +132,7 @@
 
           container.appendChild(card);
         });
-      };
+      }
 
       getCreators();
     </script>
