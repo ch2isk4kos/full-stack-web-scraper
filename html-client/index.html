@@ -124,7 +124,7 @@
 
         creators.forEach((creator) => {
           const card = addElement("div", { class: "card" });
-          const title = addElement("h4", { innerText: creator.name });
+          const title = addElement("h4", { innerText: creator.handle });
           const img = addElement("img", { src: creator.img });
 
           card.appendChild(title);
