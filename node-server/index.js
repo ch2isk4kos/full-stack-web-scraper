@@ -37,14 +37,22 @@ app.get("/", (req, res) => {
 });
 
 app.get("/creators", async (req, res) => {
-  const creators = [
-    { id: "0", name: "Pat Mcafee Show", img: "http://" },
-    { id: "1", name: "Tape Don't Lie: Raiders Podcast", img: "http://" },
-    { id: "2", name: "New York Knicks", img: "http://" },
-  ];
+  await client.connect();
+  console.log("Connected to MongoDB");
+  // const creators = [
+  //   { id: "0", name: "Pat Mcafee Show", img: "http://" },
+  //   { id: "1", name: "Tape Don't Lie: Raiders Podcast", img: "http://" },
+  //   { id: "2", name: "New York Knicks", img: "http://" },
+  // ];
 
   // @TODO: GET from db
+  console.log("loading creators...");
 
+  const creators = await Creator.find();
+  console.log({ creators });
+
+  await client.close();
+  console.log("Disconnected from MongoDB");
   res.send(creators);
 });
 
